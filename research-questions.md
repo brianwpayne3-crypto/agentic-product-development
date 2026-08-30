@@ -46,6 +46,24 @@ What branching/deployment models work best with multiple AI agents and Preview e
 
 How much release, migration, review, and operational safety is economically justified for a solo builder shipping real software? Where is the boundary between useful professional discipline and process whose cost exceeds the risk it mitigates?
 
+## 9. Market maturity and professional positioning
+
+Where do the problems and practices explored in this repository sit relative to the broader software-engineering and AI-development market?
+
+The purpose is not to establish whether the work is "cutting edge" for its own sake. The practical question is how to describe this experience accurately to employers, collaborators, and other practitioners without presenting established practice as novel or underselling experience that is still uncommon in normal engineering organizations.
+
+Things to investigate:
+
+- Which agentic-development practices are already mainstream, emerging, specialist, or genuinely experimental?
+- How widely are engineering teams actually using repo-grounded coding agents, durable agent instructions, human/agent handoffs, parallel agents, and agentic release workflows in production work?
+- Which problems have mature industry solutions versus active practitioner experimentation?
+- How quickly is adoption moving from individual developers into engineering organizations?
+- What vocabulary are employers and engineering leaders using for this work?
+- Which aspects of hands-on agentic product development are meaningful professional differentiators today?
+- How should practical experience be discussed in interviews without claiming novelty that is not supported by the market?
+
+This question should be revisited as the market changes; its answer is inherently time-sensitive.
+
 ## Research principle
 
 Do not turn an open question into another workflow rule merely because a plausible answer can be invented. Research existing practice first, test promising approaches against real product work, and only then promote useful findings into durable ways of working.
