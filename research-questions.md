@@ -22,6 +22,27 @@ Things to investigate:
 
 What task size produces the best quality, reliability, context efficiency, and usage cost? Compare tiny issues, coherent medium-sized tasks, batches, and larger end-to-end features.
 
+### Field observation — visual tuning can be disproportionately expensive
+
+During PedalFish header-logo work on 2026-08-31, the coding agent correctly implemented the initial branding change, but subsequent human visual acceptance produced several very small iterations: swapping/refining the logo artwork, changing the rendered size from roughly 42px to 52px and then toward 60px, and adjusting crop/visual weight.
+
+Each tiny visual adjustment risked paying the full coding-agent workflow cost again: repository context/reconciliation, implementation reasoning, broad tests, typecheck, lint, production build, diff checks, commit, push, Preview deployment, and another human inspection. The implementation risk of these later changes was very low while the token/usage cost was comparatively high.
+
+This suggests a useful research hypothesis rather than a settled rule:
+
+> Separate implementation from visual-tuning loops. Use a capable coding agent to establish the feature correctly, then use the cheapest reliable path for small CSS/layout/image-size iterations, with focused validation during tuning and full validation once human visual acceptance is reached.
+
+Questions to test:
+
+- When can visual-only iterations safely use a cheaper/faster model than the initial implementation?
+- When is a direct local edit more economical than another coding-agent task?
+- Which focused tests are sufficient during repeated low-risk visual tuning?
+- Can full-suite/typecheck/lint/build validation be deferred until the human accepts the visual result without materially increasing risk?
+- How should the workflow distinguish a genuinely low-risk presentation tweak from a visual change that affects responsive behavior, accessibility, or application structure?
+- Does batching several human visual corrections into one agent pass materially reduce usage without slowing feedback too much?
+
+This is concrete evidence for the broader task-size/economics question: a workflow optimized for reliable feature implementation may be unnecessarily expensive when applied unchanged to iterative visual polishing.
+
 ## 3. Parallel coding agents
 
 How are practitioners successfully running multiple coding agents at once? Investigate worktrees, branch ownership, dependency management, merge strategy, reviewer agents, and the actual throughput gain versus coordination cost.
